@@ -6,7 +6,7 @@
 from bottle import Bottle, template
 
 from database import Base, engine
-import form
+from form import form_app
 from save import save_app
 from query import query_app
 
@@ -19,7 +19,7 @@ def index():
 
 
 if __name__ == '__main__':
-    app.mount('/app01', form.form_app)
+    app.mount('/form', form_app)
     app.mount('/save', save_app)
     app.mount('/query', query_app)
     Base.metadata.create_all(engine)

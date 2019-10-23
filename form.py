@@ -9,12 +9,12 @@ from bottle import request
 form_app = Bottle()
 
 
-@form_app.route('/form')
+@form_app.route('/')
 def form():
     return template('form.html')
 
 
-@form_app.route('/form/login', method='POST')
+@form_app.route('/', method='POST')
 def login():
     username = request.forms.get('username')
     password = request.forms.get('password')

@@ -20,5 +20,6 @@ def query():
 def do_query():
     form = request.POST.decode('utf-8')
     name = form.get('name')
-    results = session.query(People).filter_by(name=name).all()
+    # results = session.query(People).filter_by(name=name).all()
+    results = session.query(People).filter(People.name.like('%' + name + '%')).all()
     return template('query.html', results=results)
